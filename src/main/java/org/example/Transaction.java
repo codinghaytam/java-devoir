@@ -1,5 +1,7 @@
 package org.example;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,9 +21,17 @@ enum Type{
 @Getter
 @Setter
 public final class Transaction {
+    @Getter
+    @Setter
     private final Type type;
+    @Getter
+    @Setter
     private final Timestamp timestamp ;
+    @Getter
+    @Setter
     private final String Reference;
+    @Getter
+    @Setter
     private final List<Compte> compte;
 
     Transaction(Timestamp timestamp, String Reference, List<Compte> compte) {
@@ -64,4 +74,5 @@ public final class Transaction {
         }
 
     }
+
 }
