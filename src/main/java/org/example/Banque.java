@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 @AllArgsConstructor
-public class Banque {
+public final class Banque {
     private int id;
     @Getter
     @Setter

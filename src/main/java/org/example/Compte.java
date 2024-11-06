@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Compte {
+public final class Compte {
     private String nom;
     private Date DateCreation,DateUpdate;
     private int Devise;

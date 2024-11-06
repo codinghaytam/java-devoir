@@ -18,7 +18,7 @@ enum Type{
 
 @Getter
 @Setter
-public class Transaction {
+public final class Transaction {
     private final Type type;
     private final Timestamp timestamp ;
     private final String Reference;
