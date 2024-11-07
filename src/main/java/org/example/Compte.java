@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public final class Compte {
+public class Compte {
     @Getter
     @Setter
     private String nom;

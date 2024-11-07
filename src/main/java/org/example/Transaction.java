@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.UUID;
 
 import static java.lang.System.exit;
 
@@ -20,23 +21,19 @@ enum Type{
 
 @Getter
 @Setter
-public final class Transaction {
+public class Transaction {
     @Getter
-    @Setter
     private final Type type;
     @Getter
-    @Setter
     private final Timestamp timestamp ;
     @Getter
-    @Setter
     private final String Reference;
     @Getter
-    @Setter
     private final List<Compte> compte;
 
-    Transaction(Timestamp timestamp, String Reference, List<Compte> compte) {
+    Transaction(Timestamp timestamp, List<Compte> compte) {
         this.timestamp = timestamp;
-        this.Reference = Reference;
+        this.Reference = UUID.randomUUID().toString();
         this.compte = compte;
         if(compte.size()<2){
             System.out.println("Compte length should be greater than 2");

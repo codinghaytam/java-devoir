@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.Setter;
 
-public final class Client {
+public class Client {
     @Getter
     @Setter
     private String nom,prenom,adresse,phone,email;
