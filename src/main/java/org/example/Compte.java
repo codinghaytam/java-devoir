@@ -25,13 +25,16 @@ public class Compte {
     @Setter
     @Getter
     private Banque banque;
+    private Client client;
 
-    public Compte(String nom, Date DateCreation, Date DateUpdate, int Devise) {
+    public Compte(String nom, Date DateCreation, Date DateUpdate, int Devise,Banque banque, Client client) {
         this.nom = nom;
         this.DateCreation = DateCreation;
         this.DateUpdate = DateUpdate;
         this.Devise = Devise;
-        this.transactions = new ArrayList<Transaction>();
+        this.transactions = new ArrayList<>();
+        this.banque= banque;
+        this.banque.getComptes().add(this);
     }
 
 }

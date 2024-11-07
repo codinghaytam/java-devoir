@@ -29,14 +29,20 @@ public class TransactionTest {
     private Compte compte1;
     private Compte compte2;
     private Compte compte3;
+    private Client client1;
+    private Client client2;
+    private Client client3;
 
 
     private void setup() {
       this.banque1 = new Banque(1, "CountryA");
       this.banque2 = new Banque(2, "CountryB");
-      this.compte1 = new Compte("Account1", new Date(), new Date(), 100);
-      this.compte2 = new Compte("Account2", new Date(), new Date(), 200);
-      this.compte3 = new Compte("Account3", new Date(), new Date(), 300);
+        this.client1 = new Client("haytam","soukrati","kfndjsmx123","0775668899","hello@gmail.com");
+        this.client2 = new Client("do","soukrati","kfsmx123","0775665661","hello@gmail.com");
+        this.client3 = new Client("hamid","soukrat","kfmfgmx123","0775668899","hello@gmail.com");
+      this.compte1 = new Compte("Account1", new Date(), new Date(), 100,banque1,client1);
+      this.compte2 = new Compte("Account2", new Date(), new Date(), 200,banque1,client2);
+      this.compte3 = new Compte("Account3", new Date(), new Date(), 300,banque2,client3);
       this.compte1.setBanque(banque1);
       this.compte2.setBanque(banque1);
       this.compte3.setBanque(banque2);
@@ -48,7 +54,6 @@ public class TransactionTest {
         List<Compte> comptes = new ArrayList<>();
         comptes.add(this.compte1);
         comptes.add(this.compte2);
-        System.out.println(comptes);
         Transaction transaction = new Transaction(new Timestamp(System.currentTimeMillis()), comptes);
         assertEquals(Type.VIRINT, transaction.getType(), "Expected type to be VIRINT for two accounts in the same bank and country");
     }
@@ -57,7 +62,7 @@ public class TransactionTest {
     public void testTransactionWithTwoDifferentBanksSameCountryAccounts() {
         setup();
         Banque banque3 = new Banque(3, "CountryA");
-        Compte compte4 = new Compte("Account4", new Date(), new Date(), 150);
+        Compte compte4 = new Compte("Account4", new Date(), new Date(), 150,banque3,client1);
         compte4.setBanque(banque3);
         List<Compte> comptes = List.of(compte1, compte4);
         Transaction transaction = new Transaction(new Timestamp(System.currentTimeMillis()), comptes);
